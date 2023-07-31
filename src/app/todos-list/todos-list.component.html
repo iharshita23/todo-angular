@@ -1,0 +1,16 @@
+<div class="list" [ngClass]="isDarkMode ? '' : 'lightMode' " cdkDropListGroup>
+    <ul>
+        <app-todo-item 
+            *ngFor="let todo of todosList" 
+            [todoTitle]="todo.title"
+            [isTodoDone]="todo.done"
+            [todoId]="todo.id"
+            (idEvent)="addId($event)"
+            (crossId)="addCrossId($event)"
+            [isDarkMode]="isDarkMode"
+        ></app-todo-item>
+    </ul>
+
+
+    <ng-content></ng-content>
+</div>
